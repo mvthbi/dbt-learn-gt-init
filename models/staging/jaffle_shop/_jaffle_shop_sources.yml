@@ -13,5 +13,29 @@ sources:
       tables:
         - name: customers
           freshness: null
+          columns:
+            - name: id
+              data_tests:
+                - unique
+                - not_null                
         - name: orders
           freshness: null
+          columns:
+            - name: id
+              data_tests:
+                - unique
+                - not_null
+            - name: status
+              data_tests:
+                - accepted_values:
+                    values:
+                      - 'returned'
+                      - 'completed'
+                      - 'return_pending'
+                      - 'shipped'
+                      - 'placed'
+            - name: user_id
+              data_tests:
+                - relationships:
+                    field: id
+                    to: source('jaffle_shop', 'customers')
