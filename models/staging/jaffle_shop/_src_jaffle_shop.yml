@@ -1,0 +1,7 @@
+sources:
+  - name: jaffle_shop
+    database: raw
+    tables:
+      - name: customers
+      - name: orders
+        description: '{{ doc("order_status") }}'
