@@ -1,10 +1,17 @@
 sources:
   - name: jaffle_shop
+    description: A replica of the postgres database
     database: raw
     schema: jaffle_shop
     tables:
       - name: customers
+        columns:
+        - name: id
+          data_tests:
+            - unique
+            - not_null
       - name: orders
+        description: One record per order
         config: 
           freshness:
             warn_after:
