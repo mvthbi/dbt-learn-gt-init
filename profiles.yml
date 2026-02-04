@@ -1,0 +1,12 @@
+default:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      threads: 16
+      account: efhbarv-ad39476
+      user: mvthbi
+      database: analytics
+      warehouse: transforming
+      schema: dbt_mvthbi
+      password: EDV6xvn9wck8ngd@gfy
