@@ -4,7 +4,7 @@ WITH payments AS (
     SELECT
         *
     FROM {{ ref('stg_stripe__payments') }}
-    WHERE status = 'success'
+    WHERE payment_status = 'success'
 )
 , pivoted AS (
     SELECT

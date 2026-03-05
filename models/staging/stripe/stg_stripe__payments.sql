@@ -4,20 +4,19 @@ with source as (
 
 ),
 
-renamed as (
+transformation as (
 
     select
         id AS payment_id,
         orderid AS order_id,
         paymentmethod AS payment_method,
-        status,
+        status as payment_status,
         -- amount is stored in cents, convert it to dollars
-        {{ cents_to_dollars('amount', 2) }} AS amount,
-        created,
+        {{ cents_to_dollars('amount', 2) }} AS payment_amount,
+        created as payment_created,
         _batched_at
-
     from source
 
 )
 
-select * from renamed
+select * from transformation
