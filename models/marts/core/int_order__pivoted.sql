@@ -10,7 +10,7 @@ WITH payments AS (
     SELECT
         order_id
         {% for method in payment_methods %}
-        , SUM(CASE WHEN payment_method = '{{ method }}' THEN amount ELSE 0 END) AS {{ method }}_total_amount
+        , SUM(CASE WHEN payment_method = '{{ method }}' THEN payment_amount ELSE 0 END) AS {{ method }}_total_amount
         {% endfor %}
     FROM payments
     GROUP BY order_id

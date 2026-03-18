@@ -16,7 +16,7 @@ models:
                 field: customer_id
       - name: order_date
         description: "The date when the order was placed."
-      - name: status
+      - name: order_status
         description: "{{doc('order_status')}}"
         data_tests:
           - accepted_values:
